@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.license       = "MIT"
 
   s.add_development_dependency "rspec", "~> 3.5"
+  s.add_development_dependency "rubycritic", "~> 2.9"
 
   s.add_runtime_dependency "cql", "~> 1.7"
 end
