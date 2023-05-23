@@ -9,7 +9,9 @@ describe SuiteView do
     end
 
     describe "tag counts for scenario outlines" do
-      expect(@suiteview.outline_tag_count("@tweets")).to eq 3
+      it "returns the correct tag count for @tweets in scenario outlines" do
+        expect(@suiteview.outline_tag_count("@tweets")).to eq 3
+      end
     end
   end
 end
