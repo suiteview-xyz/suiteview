@@ -1,3 +1,4 @@
+require 'cql'
 class SuiteView
   attr_accessor :repo
   def initialize(opts)
