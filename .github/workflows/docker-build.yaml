@@ -1,0 +1,22 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/dbwest
+
+      - name: Set gem version
+        run: gem build suiteview.gemspec -v > gem_version.txt
+        id: gem_version
+        shell: bash
+
+      - name: Build Docker image
+        run: docker build . -t suiteview:${{ steps.gem_version.outputs.stdout }}
