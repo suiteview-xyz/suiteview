@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe MyGem do
+describe SuiteView do
   # write your tests here
 end
