@@ -1,0 +1,3 @@
+class SuiteView
+
+end
