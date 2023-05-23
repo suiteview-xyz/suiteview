@@ -13,8 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set gem version
-        run: echo "$(gem build suiteview.gemspec -v | cut -d ' ' -f 2)" >> $env:GITHUB_OUTPUT
-
       - name: Build Docker image
-        run: docker build . -t suiteview:$GITHUB_OUTPUT
+        run: docker build . -t suiteview:latest
