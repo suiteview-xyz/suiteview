@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/dbwest
+        uses: actions/checkout@v2
 
       - name: Set gem version
         run: gem build suiteview.gemspec -v > gem_version.txt
