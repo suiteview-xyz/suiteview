@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
   s.homepage    =
     "https://rubygems.org/gems/suiteview"
   s.license       = "MIT"
+
+  s.add_development_dependency "rspec"
 end
