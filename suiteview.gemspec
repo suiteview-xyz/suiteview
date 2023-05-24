@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.files       = ["lib/suiteview.rb"]
   s.homepage    =
     "https://rubygems.org/gems/suiteview"
+  s.metadata = { "github_repo" => "ssh://github.com/suiteview/suiteview" }
   s.license       = "MIT"
 
   s.add_development_dependency "rspec", "~> 3.5"
