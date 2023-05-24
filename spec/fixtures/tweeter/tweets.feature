@@ -18,3 +18,12 @@ Feature: Tweets
     Then I see 20 tweets
     When I delete 3 tweets
     Then I see 17 tweets
+
+  @followers
+  Scenario Outline: My followers
+    Given I login as a user <user>
+    When I visit the my followers page
+    Then I see <follower_count> tweets
+    Examples:
+      | user   | follower_count |
+      | @jbird | 2              |

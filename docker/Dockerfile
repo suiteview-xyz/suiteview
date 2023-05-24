@@ -6,4 +6,4 @@ COPY . .
 
 RUN bundle
 
-RUN bundle exec rake
+ENTRYPOINT ["bundle", "exec", "rake", "rspec_report:html"]
