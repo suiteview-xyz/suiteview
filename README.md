@@ -33,3 +33,23 @@ tag,percent
 @tweets,80.0
 @followers,20.0
 ```
+
+`my_suiteview2.rb`
+
+```ruby
+require "suiteview"
+
+# Instantiate the SuiteView class and give it the location of your Cucumber Suite (repo)
+sv = SuiteView.new({repo: "features", include_tags: "@tweets,@followers"})
+
+# Get a count of all Scenarios directly tagged with a particular tag
+sv.total_tags_count.to_csv.render_to_file("my2.csv")
+```
+
+`my2.csv`
+
+```csv
+tag,count
+@tweets,4
+@followers,1
+```

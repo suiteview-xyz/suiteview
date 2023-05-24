@@ -32,6 +32,15 @@ class SuiteView
     self
   end
 
+  def total_tags_count
+    output = [%w(tag count)]
+    self.include_tags.split(',').each do |tag|
+      output << [tag, total_tag_count(tag).render.to_s]
+    end
+    self.output = output
+    self
+  end
+
   def percentages
     output = [%w(tag percent)]
     total_count = 0
