@@ -1,6 +1,6 @@
-@tweets
 Feature: Tweets
 
+  @tweets
   Scenario Outline: A user has tweets
     Given I login as a user <user>
     When I visit the my tweets page
@@ -11,6 +11,7 @@ Feature: Tweets
       | @p     | 12          |
       | @zfy   | 3           |
 
+  @tweets
   Scenario: Tweets can be deleted
     Given I have a user @jbird
     When I visit the my tweets page
