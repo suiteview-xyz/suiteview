@@ -1,15 +1,19 @@
 require 'cql'
-require 'csv'
 require_relative './suitestat'
+require_relative './suiterender'
 # SuiteView is responsible for providing consumable Ruby Cucumber suite stats
 class SuiteView
-  attr_accessor :repo, :include_tags, :output
+  attr_accessor :repo, :include_tags, :output, :render_step
 
   def initialize(opts)
     self.output = nil
     self.repo = CQL::Repository.new(opts[:repo])
     self.include_tags = opts[:include_tags] || ""
     self.include_tags = self.include_tags.split(',')
+
+    # Create a SuiteRender object and set it as the last step in the chain
+    self.render_step = SuiteRender.new(self)
+    render_step.next_step = self
   end
 
   def outline_tag_count(tag)
@@ -43,20 +47,15 @@ class SuiteView
   end
 
   def to_csv
-    self.output = CSV.generate do |csv|
-      self.output.each { |row| csv << row }
-    end
-    self
+    self.render_step.to_csv
   end
 
   def render
-    self.output
+    self.render_step.render
   end
 
   def render_to_file(filename)
-    File.open(filename, "w") do |file|
-      file.puts self.output
-    end
+    self.render_step.render_to_file(filename)
   end
 
   private

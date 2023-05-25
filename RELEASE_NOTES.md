@@ -4,6 +4,13 @@
 
 1. suiteview cannot count tags properly for Scenarios and Scenario Outlines that are specified on the Feature level.
 
+## version 2.1.4
+
+### Notes
+
+1. More Code quality improvements
+2. Extract Rendering methods to class
+
 ## version 2.1.3
 
 ### Notes
