@@ -17,7 +17,7 @@ class SuiteRender
     end
 
     def launch
-      Launchy.open(@filename)
+      Launchy.open(File.expand_path(@filename))
     end
 
   end

@@ -7,7 +7,7 @@ describe SuiteRender::Pie do
       FileUtils.rm("#{__dir__}/my_pie.html")
     end
     it "can make a pie chart" do
-      @suiteview = SuiteView.new({ repo: repo, include_tags: '@tweets,@followers' }).total_tags_count.to_csv.render_pie_chart_html("#{__dir__}/my_pie.html").launch
+      @suiteview = SuiteView.new({ repo: repo, include_tags: '@tweets,@followers' }).total_tags_count.to_csv.render_pie_chart_html("#{__dir__}/my_pie.html")
       expected_file_contents = <<~FILECONTENTS
         <!DOCTYPE html>
         <html>
