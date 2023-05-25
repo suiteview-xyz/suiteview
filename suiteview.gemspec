@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "suiteview"
-  s.version     = "2.2.0"
+  s.version     = "3.0.0"
   s.summary     = "suiteview is a tool to help you get a big picture view of what is in your cucumber suite"
   s.description = <<-DESC
 suiteview is a tool to help show the contents of a cucumber suite with your unique specifications
@@ -60,4 +60,6 @@ DESC
 
   s.add_runtime_dependency "cql", "~> 1.7"
   s.add_runtime_dependency "csv", "~> 3.0"
+  s.add_runtime_dependency "chartkick", "~> 1.4.1"
+  s.add_runtime_dependency "launchy", "~> 2.4.3"
 end

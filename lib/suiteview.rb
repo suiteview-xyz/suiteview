@@ -1,8 +1,10 @@
 require 'cql'
 require_relative './suitestat'
-require_relative './suiterender'
+require_relative './suiterender/suiterender'
+require_relative './suiterender/pie'
 # SuiteView is responsible for providing consumable Ruby Cucumber suite stats
 class SuiteView
+  include SuiteRender::Pie
   attr_accessor :repo, :include_tags, :exclude_tag, :output, :render_step
 
   def initialize(opts)
@@ -15,6 +17,7 @@ class SuiteView
     # Create a SuiteRender object and set it as the last step in the chain
     self.render_step = SuiteRender.new(self)
     render_step.next_step = self
+    self
   end
 
   def outline_tag_count(tag)

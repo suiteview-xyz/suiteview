@@ -5,12 +5,22 @@ In your Gemfile
 ```Gemfile
 source "https://rubygems.org"
 
-gem "suiteview", "~> 2.2.0"
+gem "suiteview", "~> 3.0.0"
 ```
 
 `$ bundle install`
 
 ## Use the gem
+
+### See a cool piechart
+
+`make_me_a_pie.rb`
+
+```ruby
+require 'suiteview'
+
+SuiteView.new({ repo: repo, include_tags: '@tweets,@followers' }).total_tags_count.to_csv.render_pie_chart_html("#{__dir__}/my_pie.html").launch
+```
 
 `my_suiteview.rb`
 

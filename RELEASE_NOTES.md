@@ -4,6 +4,12 @@
 
 1. suiteview cannot count tags properly for Scenarios and Scenario Outlines that are specified on the Feature level.
 
+## version 3.0.0
+
+### Notes
+
+1. Now with Pie charts!
+
 ## version 2.2.0
 
 ### Notes

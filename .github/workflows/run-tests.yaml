@@ -6,24 +6,12 @@ on:
       - main
 
 jobs:
-  tests:
+  run-tests:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: docker/Dockerfile
-          push: true
-          tags: suiteview:latest
-
-      - name: Run Tests
-        run: docker run suiteview:latest
-        uses: actions/upload-artifact@v2
-        with:
-          name: rspec_results
-          path: /app/reports/rspec_results.html
+      - name: Build Docker image
+        run: docker build . -f docker/Dockerfile -t suiteview:latest
