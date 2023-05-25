@@ -5,7 +5,7 @@ In your Gemfile
 ```Gemfile
 source "https://rubygems.org"
 
-gem "suiteview", "~> 3.0.0"
+gem "suiteview", "~> 3.0.1"
 ```
 
 `$ bundle install`

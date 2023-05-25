@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "suiteview"
-  s.version     = "3.0.0"
+  s.version     = "3.0.1"
   s.summary     = "suiteview is a tool to help you get a big picture view of what is in your cucumber suite"
   s.description = <<-DESC
 suiteview is a tool to help show the contents of a cucumber suite with your unique specifications
@@ -49,7 +49,7 @@ tag,count
 DESC
   s.authors     = ["David West"]
   s.email       = "support@suiteview.xyz"
-  s.files       = ["lib/suiteview.rb"]
+  s.files       = Dir.glob("{lib}/**/*")
   s.homepage    =
     "https://github.com/suiteview/suiteview"
   s.metadata = { "github_repo" => "ssh://github.com/suiteview/suiteview" }
