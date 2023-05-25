@@ -62,6 +62,10 @@ class SuiteView
     self.render_step.render_to_file(filename)
   end
 
+  def all_tags
+    all_tags_query
+  end
+
   private
 
   def calc_percentage(suite_stat_dto)
@@ -106,5 +110,13 @@ class SuiteView
       with { |scenario| scenario.tags.map(&:name).include?(tag) }
       without { |scenario| scenario.tags.map(&:name).include?(exclude_tag) }
     end
+  end
+
+  def all_tags_query
+    self.repo.query do
+      select tags
+      transform tags => lambda { |tags| tags.map(&:name) }
+      from scenarios, outlines
+    end.map {|result| result["tags"]}.flatten.uniq
   end
 end

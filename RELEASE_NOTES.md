@@ -4,6 +4,12 @@
 
 1. suiteview cannot count tags properly for Scenarios and Scenario Outlines that are specified on the Feature level.
 
+## version 3.1.0
+
+### Notes
+
+1. all_tags method added
+
 ## version 3.0.3
 
 ### Notes

@@ -55,5 +55,12 @@ describe SuiteView do
         expect(@suiteview.total_tags_count.render).to eq([%w(tag count), %w(@following 2)])
       end
     end
+
+    describe "the all_tags method" do
+      it "can return a list of all tags in the suite" do
+        @suiteview = SuiteView.new({ repo: repo})
+        expect(@suiteview.all_tags).to eq(%w(@tweets @followers @following @wip))
+      end
+    end
   end
 end
