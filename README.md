@@ -5,7 +5,7 @@ In your Gemfile
 ```Gemfile
 source "https://rubygems.org"
 
-gem "suiteview", "~> 2.1.41"
+gem "suiteview", "~> 2.2.0"
 ```
 
 `$ bundle install`
@@ -18,7 +18,7 @@ gem "suiteview", "~> 2.1.41"
 require "suiteview"
 
 # Instantiate the SuiteView class and give it the location of your Cucumber Suite (repo)
-sv = SuiteView.new({repo: "features", include_tags: "@tweets,@followers"})
+sv = SuiteView.new({repo: "features", include_tags: "@tweets,@followers", exclude_tag: "@wip"})
 
 # Get a count of all Scenarios directly tagged with a particular tag
 sv.percentages.to_csv.render_to_file("my.csv")
@@ -40,7 +40,7 @@ tag,percent
 require "suiteview"
 
 # Instantiate the SuiteView class and give it the location of your Cucumber Suite (repo)
-sv = SuiteView.new({repo: "features", include_tags: "@tweets,@followers"})
+sv = SuiteView.new({repo: "features", include_tags: "@tweets,@followers", exclude_tag: "@wip"})
 
 # Get a count of all Scenarios directly tagged with a particular tag
 sv.total_tags_count.to_csv.render_to_file("my2.csv")

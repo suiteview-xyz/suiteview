@@ -48,5 +48,12 @@ describe SuiteView do
         end
       end
     end
+
+    describe "support for :exclude_tag" do
+      it "returns tag total_tags_count for {include_tags: '@following', exclude_tags: '@wip'}" do
+        @suiteview = SuiteView.new({ repo: repo, include_tags: '@following', exclude_tag: '@wip' })
+        expect(@suiteview.total_tags_count.render).to eq([%w(tag count), %w(@following 2)])
+      end
+    end
   end
 end

@@ -3,13 +3,14 @@ require_relative './suitestat'
 require_relative './suiterender'
 # SuiteView is responsible for providing consumable Ruby Cucumber suite stats
 class SuiteView
-  attr_accessor :repo, :include_tags, :output, :render_step
+  attr_accessor :repo, :include_tags, :exclude_tag, :output, :render_step
 
   def initialize(opts)
     self.output = nil
     self.repo = CQL::Repository.new(opts[:repo])
     self.include_tags = opts[:include_tags] || ""
     self.include_tags = self.include_tags.split(',')
+    self.exclude_tag = opts[:exclude_tag]
 
     # Create a SuiteRender object and set it as the last step in the chain
     self.render_step = SuiteRender.new(self)
@@ -84,19 +85,23 @@ class SuiteView
   end
 
   def outline_query(tag)
+    exclude_tag = self.exclude_tag
     self.repo.query do
       select examples
       transform examples => lambda { |examples| examples[0].rows.drop(1) }
       from outlines
       with { |outline| outline.tags.map(&:name).include?(tag) }
+      without { |outline| outline.tags.map(&:name).include?(exclude_tag) }
     end
   end
 
   def scenario_query(tag)
+    exclude_tag = self.exclude_tag
     self.repo.query do
       select name
       from scenarios
       with { |scenario| scenario.tags.map(&:name).include?(tag) }
+      without { |scenario| scenario.tags.map(&:name).include?(exclude_tag) }
     end
   end
 end
